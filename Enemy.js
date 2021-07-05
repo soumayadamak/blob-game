@@ -34,7 +34,7 @@ class Enemy extends Blob{
             if (testingMode !== "start"){
                 var yCor = window.innerHeight/2;
             }else{
-                 var yCor = random.intBetween(0, window.innerHeight);
+                 var yCor = Math.floor(Math.random() * window.innerHeight);
              }
             super.setY(yCor); 
             if(this.direction == "right"){
@@ -46,7 +46,8 @@ class Enemy extends Blob{
             if (testingMode !== "start"){
                 var xCor = window.innerWidth/2;}
              else{
-                 var xCor = random.intBetween(0, window.innerWidth);
+    
+                 var xCor = Math.floor(Math.random() * window.innerWidth);
              }
             super.setX(xCor); 
             if(this.direction == "up"){
