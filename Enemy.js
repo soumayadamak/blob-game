@@ -5,7 +5,8 @@ var thePlayer;                        // thePlayer blob
 class Enemy extends Blob{
     // the constructor calls the parent constructor using random color and diameter and then choose a random direction for the blob
     constructor(testingMode){
-        var color = random.color(); 
+        
+        var color = "#" + Math.floor(Math.random()*16777215).toString(16); 
         var diameter = Math.floor(Math.random() * (maxDiameter-4)+5);
         var direction = ["left", "right","up", "down"][Math.floor(Math.random()*4)]; 
         super(color, diameter);
