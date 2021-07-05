@@ -1,7 +1,8 @@
 // Soumaya Dammak 
 // brigning all the pieces together 
-var testingMode; 
-var $buttons = $(".button");
+var testingMode;
+var $buttons = $(".button"); // all the button class elements
+//iterate through all the button class elements, for each element, add a click event handler depending on the testing mode saved as an id 
 for (var i = 0; i < $buttons.length; ++i ){
     $($buttons[i]).click(function(){
         testingMode = $(this).attr("id");
