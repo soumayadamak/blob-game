@@ -1,8 +1,9 @@
 var minDiameter = 5;                   // random size >= this
 var maxDiameter = window.innerWidth/4; // random size <= this
 var enemyDuration = 5000;             // time to cross the document
-var thePlayer; 
+var thePlayer;                        // thePlayer blob 
 class Enemy extends Blob{
+    // the constructor calls the parent constructor using random color and diameter and then choose a random direction for the blob
     constructor(testingMode){
         var color = random.color(); 
         var diameter = Math.floor(Math.random() * (maxDiameter-4)+5);
@@ -12,11 +13,13 @@ class Enemy extends Blob{
         this.hasCollided = false; 
         this.setCoords(testingMode);
     }
+    //This functions has no arguments and marks the blob as collided with the player blob
     collide(){
         this.hasCollided = true; 
         thePlayer.collide(this);
         
     }
+    //this functions has no arguments and checks if the player blob collided with enemy blob
     maybeCollide(){
         if (this.hasCollided == false){
             if (super.intersects(thePlayer)){
@@ -24,6 +27,7 @@ class Enemy extends Blob{
             }
         }
     }
+    //this functions takes the testing mode as an input and sets the y and x coordinates depending on direction and testing mode
     setCoords(testingMode){
         if (this.direction == "right" || this.direction == "left" ){
             if (testingMode !== "start"){
@@ -50,9 +54,11 @@ class Enemy extends Blob{
             super.setY(-this.radius);
         }
     }
+    //this function removes the enemy blob from the DOM
     remove(){
         this.elt.remove(); 
     }
+    //this functions starts the enemy's game
     start(){
         if (this.direction == "right"){
             var leftCondition = window.innerWidth;
